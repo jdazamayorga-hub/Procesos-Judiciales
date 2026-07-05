@@ -194,7 +194,7 @@ def main():
                                "actuacion": act["actuacion"], "anotacion": act["anotacion"]})
             estado[rad] = {"firma": firma, "revisado": str(datetime.datetime.now())}
         except Exception as ex:
-            errores.append(f"{alias} ({rad}): error de consulta — {ex}")
+            errores.append(f"{alias} ({rad}): error de consulta — {type(ex).__name__}: {ex}")
         time.sleep(config.PAUSA_ENTRE_CONSULTAS)
 
     guardar_estado(estado)
